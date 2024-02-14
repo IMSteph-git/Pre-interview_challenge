@@ -12,11 +12,11 @@ def predict_next_3_values(data):
     price_column = data.columns[2] 
     highest_value = data[price_column].nlargest(2).iloc[1]
     first_prediction = highest_value
-    second_prediction = first_prediction - (first_prediction - data[price_column].iloc[-1]) / 2      # I chose to make my predictions according to the last 
-    third_prediction = second_prediction - (second_prediction - first_prediction) / 4                         # predicted value in order to have closer values to the sampled data
+    second_prediction = first_prediction - (first_prediction - data[price_column].iloc[-1]) / 2             # I chose to make my predictions according to the last 
+    third_prediction = second_prediction - (second_prediction - first_prediction) / 4                       # predicted value in order to have closer values to the sampled data
 
-    #second_prediction = (first_prediction - data[price_column].iloc[-1]) / 2                # Uncomment these lines if you would like to have the requested prediction algorithm
-    #third_prediction = (second_prediction - first_prediction) / 4                                   # and comment lines 15 and 16
+    #second_prediction = (first_prediction - data[price_column].iloc[-1]) / 2                               # Uncomment these lines if you would like to have the requested prediction algorithm
+    #third_prediction = (second_prediction - first_prediction) / 4                                          # and comment lines 15 and 16
 
     # Get the last timestamp value from the DF
     last_timestamp = pd.to_datetime(data['Timestamp'].iloc[-1], format='%d-%m-%Y')
